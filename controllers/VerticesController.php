@@ -11,4 +11,5 @@ class VerticesController extends ActiveController
 {
     
     public $modelClass = 'app\models\Vertices';
+
 }

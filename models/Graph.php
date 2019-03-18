@@ -19,7 +19,7 @@ class Graph{
     public function initializeAdjMat(){
         foreach ($this->vertices as $vertex1Id => $vertex1){
             foreach ($this->vertices as $vertex2Id => $vertex2){
-                $this->adjacencyMatrix[$vertex1Id][$vertex2Id] = 0;
+                $this->adjacencyMatrix[$vertex1Id][$vertex2Id] = -1;
             }
         }
 

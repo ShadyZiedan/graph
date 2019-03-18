@@ -22,7 +22,7 @@ class Vertex {
     }
 
     public static function compare($vertex1, $vertex2){
-        return $vertex1 === $vertex2;
+        return $vertex1 == $vertex2;
     }
     
 }
