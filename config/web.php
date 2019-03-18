@@ -47,14 +47,16 @@ $config = [
         ],
         'db' => $db,
         
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'enableStrictParsing' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'Graphs', 'pluralize' => false],
-        //     ],
-        // ],
+//        'urlManager' => [
+//            'enablePrettyUrl' => true,
+//            'enableStrictParsing' => true,
+//            'showScriptName' => false,
+//            'rules' => [
+//                // ['class' => 'yii\rest\UrlRule', 'controller' => 'Graphs', 'pluralize' => false],
+//                'graphs' => 'graphs/index',
+//                'path' => 'path/find',
+//            ],
+//        ],
         
     ],
     'params' => $params,
