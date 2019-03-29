@@ -12,5 +12,7 @@ class GraphsController extends ActiveController
 {
     
     public $modelClass = 'app\models\Graphs';
+
+    public $updateScenario = \yii\base\Model::SCENARIO_DEFAULT;
     
 }

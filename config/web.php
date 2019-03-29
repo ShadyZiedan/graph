@@ -52,8 +52,11 @@ $config = [
 //            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                // ['class' => 'yii\rest\UrlRule', 'controller' => 'Graphs', 'pluralize' => false],
-                'graphs' => 'graphs/index',
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'Graphs', 'tokens' => ['{id}' => '<id:\\d+>']],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'vertices' , 'tokens' => ['{id}' => '<id:\\d+>'] ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'links' , 'tokens' => ['{id}' => '<id:\\d+>'] ],
+
+//                'graphs' => 'graphs/index',
                 'path' => 'path/find',
 
             ],
