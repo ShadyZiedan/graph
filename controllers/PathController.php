@@ -27,9 +27,10 @@ class PathController extends Controller
     public $nextCurrent;
 
     public function actionFind(){
-        $start = $_GET['start'];
-        $destination = $_GET['end'];
-        $graphId = $_GET['graph'];
+        $request = \Yii::$app->request;
+        $start = $request->get('start');
+        $destination = $request->get('end');
+        $graphId = $request->get('graph');
 
         $start = Vertices::findOne($start);
         $destination = Vertices::findOne($destination);
@@ -110,16 +111,27 @@ class PathController extends Controller
 
         $v = $this->graph->vertices[$this->goalVertex->id];
         $shortestPath = [];
+        $links = [];
 
-        while ($v->parent != null) {
+        while(!is_null($v)) {
             array_push($shortestPath, $v);
+
+            if(!is_null($v->parent)){
+                $link = $this->getLink($v->parent->id, $v->id);
+                array_push( $links, $link);
+            }
+
             $v = $v->parent;
         }
 
         $shortestPath = array_reverse($shortestPath);
 
-        return [$shortestPath, $this->currentVertex->g];
+        return [$shortestPath, $links, end($shortestPath)->g];
 
+    }
+
+    public function getLink($vertex_1, $vertex_2){
+        return Links::findOne(['vertex_1'=> $vertex_1, 'vertex_2'=> $vertex_2]);
     }
 
 //    public function getAdjacentVertices($vertex){
